@@ -31,8 +31,8 @@
         remote_src: yes
         copy: no
     
-    - name: moving the folder
-      command: mv /opt/apache-tomcat-9.0.41   /opt/tomcat9/
+   - name: moving the folder
+     command: mv /opt/apache-tomcat-9.0.41   /opt/tomcat9/
    
     - name: start and enable tomcat service
       shell: nohup '/opt/tomcat9/bin/startup.sh'

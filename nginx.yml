@@ -85,7 +85,7 @@
                    server localhost:82;
                  }
                   server {
-                 listen 8081;
+                 listen 9090;
   
                   location / {
                  proxy_pass http://backend;

@@ -1,0 +1,59 @@
+---
+  - hosts: all
+    become: yes
+    tasks:
+    - name: install mysql server
+      yum:
+        name: " {{ item }} "
+        state: installed
+      with_items:
+      #  - mysql-server
+        - mysql
+      #  - mysql-php5
+    - name: start sql services
+      service:
+        name: mysqld
+        state: started
+        enabled: yes
+      tags:
+      - mysql
+      - mysql-service    
+    - name: Configure the root credentials
+      action: command mysqladmin -u root -p $mysql_root_password   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

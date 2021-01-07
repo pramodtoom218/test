@@ -1,0 +1,67 @@
+---
+  - hosts: all
+    become: yes
+    tasks:
+    - name: Download mysql
+      get_url:
+        url: http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+        dest: /opt/
+    - name: install package
+      yum:
+        name: /opt/mysql-community-release-el7-5.noarch.rpm
+        state: present
+    - name:  install mysql
+      yum:
+       name: mysql-server
+       state: installed
+    - name: start the service
+      service: 
+       name: mysql
+       state: restarted
+        
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
