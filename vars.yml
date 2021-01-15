@@ -1,0 +1,58 @@
+---
+  - hosts: all
+    become: true
+    vars:
+        packname: tree
+    tasks:
+    - name: install packname
+      package:
+        name: "{{ packname }}"
+        state: installed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
