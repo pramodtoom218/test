@@ -1,0 +1,90 @@
+---
+  - hosts: all 
+    become: yes
+    tasks:
+    - name: install java-1.8.0-openjdk
+      yum:
+        name: java-1.8.0-openjdk
+        state: present
+    - name: add tomcat group
+      group:
+        name: tomcat
+    - name: add tomcat user
+      user:
+        name: tomcat
+        group: tomcat
+        home: /usr/share/tomcat
+        createhome: no
+    - name: create a tomcat file
+      file:
+        path: /opt/pramod
+        state: touch
+    - name: download a tomcat
+      get_url:
+        url:  http://apachemirror.wuchna.com/tomcat/tomcat-9/v9.0.41/bin/apache-tomcat-9.0.41.tar.gz
+        dest: /opt/
+
+    - name: unarchive the download
+      unarchive:
+        src: /opt/apache-tomcat-9.0.41.tar.gz
+        dest: /opt/
+        remote_src: yes
+        copy: no
+    
+   - name: moving the folder
+     command: mv /opt/apache-tomcat-9.0.41   /opt/tomcat9/
+   
+    - name: start and enable tomcat service
+      shell: nohup '/opt/tomcat9/bin/startup.sh'
+  
+   
+  
+  
+
+    
+        
+       
+        
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

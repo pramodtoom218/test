@@ -1,0 +1,61 @@
+---
+  - hosts: all
+    become: yes
+    vars_prompt:
+    - name:  packname
+      prompt: "enter the packname"
+      private: no
+    tasks: 
+    - name: install a packname
+      package:
+        name: "{{packname}}"
+        state: installed
+    - name: start the service
+      service:
+        name: "{{ packname }}"
+        state: started
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

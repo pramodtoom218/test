@@ -1,0 +1,65 @@
+---
+  - hosts: all
+    become: yes
+    tasks:
+    - name: install mysql
+      yum:
+        pkg: "{{ item }}"
+        state: installed
+      with_items: 
+        - python-pip
+        - git
+        - python3-pip
+        - ntp
+        - nginx
+        - mysql
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
