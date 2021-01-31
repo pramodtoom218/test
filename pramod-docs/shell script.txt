@@ -1,0 +1,81 @@
+﻿Bad login Attempts - (lastb) & (grep -i failed /var/log/secure) [path of the log file : /var/log/btmp]
+to see the login History from the begin - (last - show) & (last -- f) [path of the log files : /var/log/wtmp]
+
+
+
+#!/bin/bash
+LOG=/var/log/secure
+if [ -n "$1" ] (here $1 used for user prompt when th file execution user should enter 		the value)
+then
+NEWUSER="$1"
+else
+NEWUSER="root"
+fi
+MESSAGE="Failed password for $NEWUSER"
+grep -i "$MESSAGE" "$LOG"
+
+
+
+equal to operator in shell (-eq : test 1 -eq 1;echo $?)
+greater than operator in shell (-lt : test 1 -lt 2;echo $?)
+lessthan operator in shell (-gt : test 1 -eq 2;echo $?)
+File compare operator in shell (-nt : test file2 -nt file1;echo $?)
+To check if the file exists (test -e file1; echo $?)
+To check block device (test -b /dev/xvda;echo $?)
+To check character device (test -c /dev/tty1;echo $?)
+To check if the file exists and its a regular file(use -f) (test -f file3; echo $?)
+To check if the file exists and it’s non-zero (test -s file2; echo $?)
+
+
+
+
+
+
+
+-b FILE
+FILE exists and is block special
+-c FILE
+FILE exists and is character special
+-d FILE
+FILE exists and is a directory
+-e FILE
+FILE exists
+-f FILE
+FILE exists and is a regular file
+-g FILE
+FILE exists and is set-group-ID
+-G FILE
+FILE exists and is owned by the effective group ID
+-h FILE
+FILE exists and is a symbolic link (same as -L)
+-k FILE
+ FILE exists and has its sticky bit set
+-L FILE
+FILE exists and is a symbolic link (same as -h)
+-O FILE
+FILE exists and is owned by the effective user ID
+-p FILE
+FILE exists and is a named pipe
+-r FILE
+FILE exists and read permission is granted
+-s FILE
+FILE exists and has a size greater than zero
+-S FILE
+FILE exists and is a socket
+-t FD  file descriptor FD is opened on a terminal
+-u FILE
+FILE exists and its set-user-ID bit is set
+-w FILE
+FILE exists and write permission is granted
+-x FILE
+FILE exists and execute (or search) permission is granted
+
+
+
+Backup Shell script:
+-------------------
+#!/bin/bash #typically the first line of the bash scripts
+BACKUPTIME=`date +%b-%d-%y` #get the current date
+DESTINATION=/home/usr/path/backup-$BACKUPTIME.tar.gz #create a backup file using the current date in it's name
+SOURCEFOLDER=/home/usr/path/data_folder #the folder that contains the files that we want to backup
+tar -cpzf $DESTINATION $SOURCEFOLDER #create the backup
